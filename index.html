@@ -6,22 +6,29 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-controller='MainController'>
+	
+	<div class='container'>
+		<div class='row'>
+			<div class='col-sm-6 col-sm-offset-3 col-xs-12'>
+				<h1 class='text-center'>Search SoundCloud</h1>
+				<form class='form-group' ng-submit='getUser()'>
+					<input class='form-control' ng-model='searchText' placeholder='SoundCloud User Name'>
+					<button class='btn btn-default btn-block'>Search</button>
+				</form>
+			</div>
+		</div>
 
-	<form ng-submit='getUser()'>
-		<input class='form-inline' ng-model='searchText' placeholder='SoundCloud User Name'>
-		<button class='btn btn-default'>Search</button>
-	</form>
-
-	<div ng-bind-html="player_html"></div>
-	<div class="row">
-    <div ng-repeat="song in userData">
-      <div class="col-md-1">
-        <img src="http://i.ytimg.com/vi/L5z2-Mx9TNE/hqdefault.jpg" ng-click="play(song.permalink_url)" ng-if="!song.artwork_url">
-        <img ng-src="{{song.artwork_url}}" ng-click="play(song.permalink_url)" ng-if="song.artwork_url">
-      </div>
-    </div>
+		<div ng-bind-html="player_html"></div>	
+		<div class="row">
+			<h1 class='results' style='display:none'>Results for: {{resultsText}}</h1>
+	    <div ng-repeat="song in userData">
+	      <div class='albumArt'>
+	        <img src="http://i.ytimg.com/vi/L5z2-Mx9TNE/hqdefault.jpg" ng-click="play(song.permalink_url)" ng-if="!song.artwork_url">
+	        <img ng-src="{{song.artwork_url}}" ng-click="play(song.permalink_url)" ng-if="song.artwork_url">
+	      </div>
+	    </div>
+	  </div>
   </div>
-
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

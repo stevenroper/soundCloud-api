@@ -5,6 +5,8 @@ app.controller('MainController', function($scope, soundService, $sce) {
 	$scope.getUser = function() {
 		soundService.getUser($scope.searchText).then(function(data) {
 			$scope.userData = data.data;
+			$scope.resultsText = $scope.searchText;
+			$('.results').show();
 			$scope.searchText = '';
 		});
 	};
