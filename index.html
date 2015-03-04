@@ -7,6 +7,11 @@
 </head>
 <body ng-controller='MainController'>
 
+	<form ng-submit='getUser()'>
+		<input class='form-inline' ng-model='searchText' placeholder='SoundCloud User Name'>
+		<button class='btn btn-default'>Search</button>
+	</form>
+
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
